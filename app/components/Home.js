@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import style from './Home.css';
+import style from './Home.less';
 
 export default class Home extends Component {
   render() {
