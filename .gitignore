@@ -34,5 +34,8 @@ node_modules
 dist
 release
 
+#tools
+tools
+
 # IDEA
 .idea/
