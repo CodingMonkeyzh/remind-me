@@ -1,0 +1,105 @@
+@box-bg: rgba(255, 255, 255, .5);
+@box-w: 300px;
+@box-h: 500px;
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: @box-w;
+  height: @box-h;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  letter-spacing: 1px;
+  //background: @box-bg;
+
+  //box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+
+  h2 {
+	font-size: 1.2rem;
+	font-weight: 400;
+  }
+}
+
+.textInputerWrap {
+  position: relative;
+  margin-bottom: 40px;
+  &:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	width: 100%;
+	border-bottom: 1px solid #fff;
+  }
+}
+
+.inputerIcon {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  line-height: 36px;
+}
+
+.textInputer {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding-left: 20px;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+
+/* todo item */
+@item-mg-v: 15px;
+@item-mg-h: 10px;
+@item-h: 30px;
+.item {
+  margin: @item-mg-v @item-mg-h;
+  overflow: hidden;
+}
+.itemCompleted {
+  composes: item;
+  color: #ddd;
+}
+
+
+.fl {
+  float: left;
+}
+
+.checkbox {
+  composes: fl;
+  width: @item-h - 4;
+  height: @item-h - 4;
+  margin: 2px;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+.checkboxCked {
+  composes: checkbox;
+  position: relative;
+  background: #fff;
+  &:after {
+	content: '';
+	position: relative;
+	width: 31px;
+	height: 18px;
+	//background: url("./images/check.png");
+  }
+}
+
+.title {
+  composes: fl;
+  height: @item-h;
+  width: @box-w - @item-h - 2*@item-mg-h;
+  text-align: left;
+  padding-left: 10px;
+  line-height: @item-h;
+  cursor: pointer;
+}
+.titleCompleted {
+  composes: title;
+  text-decoration: line-through;
+}
+
