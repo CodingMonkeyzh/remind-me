@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import cx from 'classnames';
-import style from './Todo.less';
+import style from './Todo.css';
 
 console.info(style);
 

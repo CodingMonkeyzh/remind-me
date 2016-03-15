@@ -1,35 +1,29 @@
-@box-bg: rgba(255, 255, 255, .5);
-@box-w: 300px;
-@box-h: 500px;
 .container {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: @box-w;
-  height: @box-h;
+  width: 300px;
+  height: 500px;
   transform: translate(-50%, -50%);
   text-align: center;
   letter-spacing: 1px;
-  //background: @box-bg;
+}
 
-  //box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
-
-  h2 {
-	font-size: 1.2rem;
-	font-weight: 400;
-  }
+.container h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .textInputerWrap {
   position: relative;
   margin-bottom: 40px;
-  &:after {
-	content: '';
-	position: absolute;
-	left: 0;
-	width: 100%;
-	border-bottom: 1px solid #fff;
-  }
+}
+.textInputerWrap:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #fff;
 }
 
 .inputerIcon {
@@ -51,11 +45,8 @@
 
 
 /* todo item */
-@item-mg-v: 15px;
-@item-mg-h: 10px;
-@item-h: 30px;
 .item {
-  margin: @item-mg-v @item-mg-h;
+  margin: 15px 10px;
   overflow: hidden;
 }
 .itemCompleted {
@@ -70,32 +61,36 @@
 
 .checkbox {
   composes: fl;
-  width: @item-h - 4;
-  height: @item-h - 4;
+  width: 26px;
+  height: 26px;
   margin: 2px;
   border: 2px solid #fff;
   cursor: pointer;
+  /*transition: all .2s;*/
 }
 .checkboxCked {
   composes: checkbox;
+  composes: scale from "./share/animations.css";
   position: relative;
   background: #fff;
-  &:after {
-	content: '';
-	position: relative;
-	width: 31px;
-	height: 18px;
-	//background: url("./images/check.png");
-  }
+}
+.checkboxCked:after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0;
+  width: 31px;
+  height: 18px;
+  background: url("./images/check.png");
 }
 
 .title {
   composes: fl;
-  height: @item-h;
-  width: @box-w - @item-h - 2*@item-mg-h;
+  height: 30px;
+  width: 250px;
   text-align: left;
   padding-left: 10px;
-  line-height: @item-h;
+  line-height: 30px;
   cursor: pointer;
 }
 .titleCompleted {

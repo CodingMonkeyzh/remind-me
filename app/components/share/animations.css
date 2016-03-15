@@ -1,0 +1,12 @@
+/* 缩放 */
+@keyframes scale {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.scale {
+  animation: scale .2s;
+}

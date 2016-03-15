@@ -41,6 +41,9 @@ config.module.loaders.push({
     'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
     'less-loader?sourceMap'
   ]
+}, {
+  test: /\.(png|jpg|jpeg|gif)$/,
+  loader: 'url-loader?limit=10000&name=./images/[name].[ext]'
 });
 
 
