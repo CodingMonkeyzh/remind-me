@@ -1,4 +1,9 @@
-@import "normalize.less";
+@import "./normalize.css";
+
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   position: relative;
@@ -10,10 +15,11 @@ body {
   overflow-y: hidden;
 }
 
-a {
-  color: #BEB77A;
+input, textarea, button {
+  font-family: "Microsoft YaHei","微软雅黑","Lucida Grande", Lucida Sans Unicode, Hiragino Sans GB, WenQuanYi Micro Hei, Verdana, Aril, sans-serif;
+  font-size: 16px;
 }
 
-* {
-  box-sizing: border-box;
+a {
+  color: #BEB77A;
 }
