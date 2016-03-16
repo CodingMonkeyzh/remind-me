@@ -5,7 +5,7 @@ import * as todoActions from '../actions/todoAction.js';
 
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    todos: state.todos
   };
 }
 

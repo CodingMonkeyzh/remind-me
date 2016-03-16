@@ -23,3 +23,9 @@ input, textarea, button {
 a {
   color: #BEB77A;
 }
+
+.textEllipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

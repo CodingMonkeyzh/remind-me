@@ -86,6 +86,7 @@
 
 .title {
   composes: fl;
+  composes: textEllipsis from './share/common.css';
   height: 30px;
   width: 250px;
   text-align: left;

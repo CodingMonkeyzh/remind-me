@@ -8,6 +8,6 @@ import DetailPage from './containers/DetailPageContainer.js';
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={TodoPage} />
-    <Route path="/detail" component={DetailPage} />
+    <Route path="/detail/:id" component={DetailPage} />
   </Route>
 );
