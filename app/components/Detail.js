@@ -3,8 +3,7 @@ import { Link } from 'react-router';
 
 export default class Home extends Component {
   render() {
-    //console.info(this.props);
-    let todo = this.props.todos[this.props.params.id] || {};
+    let todo = this.props.todos.find(todo => todo.id === parseInt(this.props.params.id)) || {};
     return (
       <div>
         <h2>Detail Page</h2>
