@@ -7,7 +7,7 @@ export default class Todo extends Component {
   render() {
     const { todos, actions } = this.props;
     var lists = todos.map(function(item) {
-      return <TodoItem key={item.id} todo={item} completeTodo={actions.completeTodo} />;
+      return <TodoItem key={item.id} todo={item} completeTodo={actions.completeTodo} deleteTodo={actions.deleteTodo} />;
     });
     return (
       <div className={style.container}>
@@ -64,6 +64,10 @@ class TodoItem extends Component {
     this.props.completeTodo(this.props.todo.id);
   };
 
+  _deleteTodo = () => {
+    this.props.deleteTodo(this.props.todo.id);
+  };
+
   _handleClick = (e) => {
     console.info(this.props);
   };
@@ -74,6 +78,9 @@ class TodoItem extends Component {
       <div className={todo.completed ? style.itemCompleted : style.item}>
         <div className={todo.completed ? style.checkboxCked : style.checkbox} onClick={this._completeTodo}></div>
         <Link className={todo.completed ? style.titleCompleted : style.title} to={`/detail/${todo.id}`}>{todo.text}</Link>
+        <div className={style.actionArea}>
+          <div className="btn" onClick={this._deleteTodo}>删除</div>
+        </div>
       </div>
     );
   }
