@@ -1,16 +1,31 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypesConstant.js'
+import DataStore from 'nedb/browser-version/out/nedb.js';
+const db = new DataStore({ filename: 'todo.db', autoload: true });
+
+import { LOAD_TODO, ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypesConstant.js'
 
 const initialState = [];
 
 export default function todos(state = initialState, action) {
   switch (action.type) {
-    case ADD_TODO:
+    case LOAD_TODO:
       return [
-        {
-          id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
-          completed: false,
-          text: action.text
-        },
+        ...action.todos,
+        ...state
+      ];
+
+    case ADD_TODO:
+      let newTodo = {
+        id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
+        completed: false,
+        text: action.text
+      };
+      db.insert(newTodo, function (err, newDoc) {
+        if (err) {
+          return alert('写入数据失败');
+        }
+      });
+      return [
+        newTodo,
         ...state
       ];
 

@@ -4,7 +4,11 @@ import cx from 'classnames';
 import style from './Todo.css';
 
 export default class Todo extends Component {
-  render() {
+  componentDidMount () {
+    
+  }
+
+  render () {
     const { todos, actions } = this.props;
     var lists = todos.map(function(item) {
       return <TodoItem key={item.id} todo={item} completeTodo={actions.completeTodo} deleteTodo={actions.deleteTodo} />;
@@ -61,7 +65,7 @@ class Header extends Component {
 
 class TodoItem extends Component {
   _completeTodo = () => {
-    this.props.completeTodo(this.props.todo.id);
+    this.props.completeTodo(this.props.todo.id, !this.props.todo.completed);
   };
 
   _deleteTodo = () => {

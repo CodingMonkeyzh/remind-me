@@ -1,9 +1,18 @@
 import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import Todo from '../components/Todo.js';
+import * as todoActions from '../actions/todoAction.js';
 
-export default class App extends Component {
+class App extends Component {
   static propTypes = {
     children: PropTypes.element.isRequired
   };
+
+  componentDidMount () {
+    const { actions } = this.props;
+    actions.loadTodo();
+  }
 
   render() {
     return (
@@ -21,3 +30,17 @@ export default class App extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    todos: state.todos
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(todoActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
