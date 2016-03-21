@@ -38,8 +38,8 @@ export function deleteTodo(id) {
   };
 }
 
-export function editTodo(id, text) {
-  return { type: types.EDIT_TODO, id, text }
+export function editTodo(id, text, detail) {
+  return { type: types.EDIT_TODO, id, text, detail }
 }
 
 export function completeTodo(id, value) {

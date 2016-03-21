@@ -10,7 +10,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(todoActions, dispatch);
+  return{
+    actions: bindActionCreators(todoActions, dispatch)
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Detail);

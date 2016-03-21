@@ -1,0 +1,63 @@
+.container {
+  composes: fadeUp from './share/animations.css';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 500px;
+  margin-left: -150px;
+  margin-top: -250px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.label {
+  composes: grey from './share/color.css';
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+.label:first-child {
+  margin-top: 0;
+}
+
+.titleInputer {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #333;
+  outline: none;
+}
+
+.titleTextArea {
+  composes: grey from './share/color.css';
+  display: block;
+  width: 100%;
+  height: 200px;
+  border: 1px solid #999;
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  resize: none;
+  outline: none;
+}
+
+.todoBtn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: #333;
+}
+
+.submitBtn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+  background: #2ecc71;
+  color: #fff;
+}

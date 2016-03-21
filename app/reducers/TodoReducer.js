@@ -17,7 +17,8 @@ export default function todos(state = initialState, action) {
       let newTodo = {
         id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
         completed: false,
-        text: action.text
+        text: action.text,
+        detail: ''
       };
       db.insert(newTodo, function (err, newDoc) {
         if (err) {
@@ -37,7 +38,7 @@ export default function todos(state = initialState, action) {
     case EDIT_TODO:
       return state.map(todo =>
         todo.id === action.id ?
-          Object.assign({}, todo, { text: action.text }) :
+          Object.assign({}, todo, { text: action.text, detail: action.detail }) :
           todo
       );
 
