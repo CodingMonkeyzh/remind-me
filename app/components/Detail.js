@@ -47,7 +47,7 @@ export default class Home extends Component {
           <textarea id="titleTextArea" value={this.state.content} className={style.titleTextArea} autoFocus onChange={this._handleTextAreaChange}></textarea>
           <Link className={style.submitBtn} onClick={this._handleSubmitBtn} to="/">提交</Link>
         </div>
-        <Link className={style.todoBtn} to="/"><i className="fa fa-list-ul fa-2x" /></Link>
+        <Link className={style.todoBtn} to="/"><i className="fa fa-bars fa-2x" /></Link>
       </div>
 
     );
