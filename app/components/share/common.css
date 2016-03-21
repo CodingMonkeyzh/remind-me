@@ -6,10 +6,10 @@
 }
 
 body {
+  composes: default from './color.css';
   position: relative;
-  color: #fff;
   height: 100vh;
-  background: linear-gradient(to left, #2787BD , #309AD6);
+  background-color: #fff;
   font-family: "Microsoft YaHei","微软雅黑","Lucida Grande", Lucida Sans Unicode, Hiragino Sans GB, WenQuanYi Micro Hei, Verdana, Aril, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-y: hidden;

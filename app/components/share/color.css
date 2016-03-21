@@ -1,0 +1,23 @@
+.default {
+  color: #333;
+}
+
+.completed {
+  color: #999;
+}
+
+.sccucess {
+  color: #2ecc71;
+}
+
+.danger {
+  color: #ea5f51;
+}
+
+.warning {
+  color: #e67e22;
+}
+
+.info {
+  color: #3498db;
+}
