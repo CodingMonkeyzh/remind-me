@@ -28,8 +28,8 @@ config.module.loaders.push({
     'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
   )
 }, {
-  test: /\.less$/,
-  loader: 'style-loader!css-loader!autoprefixer-loader!less-loader'
+  test: /\.(png|jpg|jpeg|gif)$/,
+  loader: 'url-loader?limit=10000&name=./images/[name].[ext]'
 });
 
 config.plugins.push(
