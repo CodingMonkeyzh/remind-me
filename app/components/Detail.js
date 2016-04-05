@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import {markdown} from 'markdown';
 
 import style from './Detail.css';
+import markdownCss from './share/github-markdown.global.css';
 
 export default class Home extends Component {
   constructor (props) {
@@ -9,7 +11,8 @@ export default class Home extends Component {
     this.state = {
       title: '',
       content: '',
-      completed: false
+      completed: false,
+      isEditing: false
     }
   }
 
@@ -20,6 +23,7 @@ export default class Home extends Component {
     this.setState({
       title: this.todo.text,
       content: this.todo.detail,
+      html: markdown.toHTML(this.todo.detail || '> 点击编辑添加详情'),
       completed: this.todo.completed
     });
   }
@@ -30,6 +34,17 @@ export default class Home extends Component {
 
   _handleTextAreaChange = (e) => {
     this.setState({ content: e.target.value });
+  };
+
+  _handleEditBtn = (e) => {
+    this.setState({
+      isEditing: !this.state.isEditing
+    });
+    if (this.state.isEditing) {
+      this.setState({
+        html: markdown.toHTML(this.state.content)
+      });
+    }
   };
 
   _handleSubmitBtn = (e) => {
@@ -44,7 +59,10 @@ export default class Home extends Component {
           <label className={style.label} htmlFor="titleInputer">标题 ></label>
           <input type="text" value={this.state.title} id="titleInputer" className={style.titleInputer} onChange={this._handleTitleChange} />
           <label className={style.label} htmlFor="titleTextArea">详情 ></label>
-          <textarea id="titleTextArea" value={this.state.content} className={style.titleTextArea} autoFocus onChange={this._handleTextAreaChange}></textarea>
+          { !this.state.isEditing ? <div className="mdArea markdown-body" dangerouslySetInnerHTML={{__html: this.state.html}}></div>
+            : <textarea id="titleTextArea" value={this.state.content} className={style.titleTextArea} autoFocus onChange={this._handleTextAreaChange}></textarea>
+          }
+          <a href="javascript:void(0)" className={style.submitBtn} onClick={this._handleEditBtn}>{this.state.isEditing ? '预览' : '编辑'}</a>
           <Link className={style.submitBtn} onClick={this._handleSubmitBtn} to="/">提交</Link>
         </div>
         <Link className={style.todoBtn} to="/"><i className="fa fa-bars fa-2x" /></Link>

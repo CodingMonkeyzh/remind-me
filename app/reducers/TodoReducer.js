@@ -1,4 +1,4 @@
-import DataStore from 'nedb/browser-version/out/nedb.js';
+import DataStore from 'nedb/browser-version/out/nedb.min.js';
 const db = new DataStore({ filename: 'todo.db', autoload: true });
 
 import { LOAD_TODO, ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypesConstant.js'

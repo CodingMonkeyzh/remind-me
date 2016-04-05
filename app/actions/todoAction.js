@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypesConstant.js'
 
-import DataStore from 'nedb/browser-version/out/nedb.js';
+import DataStore from 'nedb/browser-version/out/nedb.min.js';
 const db = new DataStore({ filename: 'todo.db', autoload: true });
 
 /**
@@ -39,7 +39,14 @@ export function deleteTodo(id) {
 }
 
 export function editTodo(id, text, detail) {
-  return { type: types.EDIT_TODO, id, text, detail }
+  return dispatch => {
+    db.update({ id: id }, { $set: { text: text, detail: detail }}, function (err, numReplaced) {
+      if (err) {
+        return alert('写入数据失败');
+      }
+      dispatch({ type: types.EDIT_TODO, id, text, detail });
+    });
+  };
 }
 
 export function completeTodo(id, value) {
